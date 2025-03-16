@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reflexões do Coração</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+            min-height: 100vh;
+            background: linear-gradient(to right, #ff758c, #ff7eb3);
+            text-align: center;
+            font-family: Arial, sans-serif;
+            color: white;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Container do player de música */
+        .music-player {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background: rgba(0, 0, 0, 0.8);
+            padding: 15px;
+            border-radius: 15px;
+            width: 100%;
+            max-width: 320px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+            margin-top: 20px;
+        }
+
+        /* Estilo da imagem do player */
+        .music-player img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            margin-bottom: 10px;
+        }
+
+        /* Barra de Progresso */
+        .progress-container {
+            width: 100%;
+            height: 5px;
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 5px;
+            margin-top: 5px;
+        }
+
+        .progress-bar {
+            width: 0;
+            height: 100%;
+            background: #ff758c;
+            border-radius: 5px;
+        }
+
+        /* Botão de play/pause */
+        .play-btn {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 2em;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        /* Container do tempo */
+        .time-container {
+            margin-top: 10px;
+        }
+
+        /* Tamanho do título */
+        h1 {
+            font-size: 2.5em;
+        }
+
+        /* Tamanho do texto */
+        p {
+            font-size: 1.2em;
+            margin-top: 10px;
+            text-align: justify;
+        }
+
+        /* Container do texto */
+        .container {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            max-width: 600px;
+            width: 100%;
+            margin-top: 40px;
+            box-sizing: border-box;
+        }
+
+        /* Responsividade */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2em;
+            }
+            p {
+                font-size: 1em;
+            }
+            .music-player img {
+                width: 80px;
+                height: 80px;
+            }
+            .play-btn {
+                font-size: 1.5em;
+            }
+            .container {
+                padding: 15px;
+                margin-top: 30px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .music-player {
+                width: 100%;
+                padding: 10px;
+            }
+            h1 {
+                font-size: 1.8em;
+            }
+            p {
+                font-size: 0.9em;
+            }
+            .music-player img {
+                width: 70px;
+                height: 70px;
+            }
+            .play-btn {
+                font-size: 1.2em;
+            }
+            .container {
+                padding: 10px;
+                margin-top: 20px;
+            }
+        }
+
+        /* Novo estilo para a frase "Eu amo você há..." */
+        .passionate-note {
+            font-size: 2em;
+            font-weight: bold;
+            color: white; /* Cor branca */
+            margin-top: 30px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6); /* Sombra para melhorar o contraste */
+        }
+
+        /* Estilo para as caixas de tempo (anos, dias, horas, etc.) */
+        .time-box {
+            display: inline-block;
+            background: rgba(0, 0, 0, 0.7); /* Cor de fundo escura */
+            color: white;
+            padding: 20px;
+            border-radius: 15px;
+            margin: 10px;
+            font-size: 1.5em; /* Tamanho maior */
+            font-weight: bold;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
+        }
+
+        .time-label {
+            display: block;
+            font-size: 0.8em;
+            margin-top: 5px;
+            text-transform: uppercase;
+        }
+
+        .time-count {
+            font-size: 1.5em;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="music-player">
+        <img src="dwdjpg.jpg" alt="seu navegador não suporta essa imagem">
+        <audio id="audio" src="YouTube [RcDs12xp5rk].mp3"></audio>
+
+        <div class="progress-container">
+            <div class="progress-bar" id="progress-bar"></div>
+        </div>
+
+        <div class="time-container">
+            <span id="current-time">0:00</span> / <span id="total-time">0:00</span>
+        </div>
+
+        <div class="music-controls">
+            <button class="play-btn" onclick="playPause()">▶️</button>
+        </div>
+    </div>
+
+    <div class="container">
+        <h1>feito carinho... ❤️</h1>
+        <p>antes de tudo, você não fez nada. Eu só quero repensar sobre mim e você. Você diz que não está pronta para namorar, e eu sempre disse que esperaria o tempo que fosse preciso até você tomar sua decisão. Porém, comecei a pensar sobre isso quase todas as noites. Não pelo fato de esperar, mas pelo medo de me esforçar por anos e, no final, nada acontecer, ou pior, nos afastarmos completamente.</p>
+        <p>A única coisa que eu queria hoje era conseguir te ver apenas como uma amizade que conheci, mas não dá. Imagino tantos momentos felizes ao seu lado que até me emociono, mesmo que esses momentos ainda sejam apenas em minhas fantasias e pensamentos. Nós nunca nos vimos pessoalmente, mas algo dentro de mim faz eu acreditar que, um dia, nossos olhares se cruzarão, espero que eu realmente esteja certo sobre isso.</p>
+        <p>Eu só queria que você soubesse… Eu amo você, com a intensidade de um amor que não tem explicação. Amo você com a pureza de quem nunca se esqueceu de como é bom ser verdadeiro, de como é bom sentir de verdade. Cada conversa, cada palavra trocada com você, mesmo que em call ou mensagem, me faz sentir como se você estivesse ao meu lado. Mesmo a distância entre nós, é como se nos aproximássemos cada vez mais, sem que ninguém mais entenda.</p>
+        <p>Eu sei que nunca nos vimos pessoalmente, mas posso sentir que nossa conexão é real. Cada segundo ao seu lado, mesmo que seja em uma mensagem ou uma simples call, é como uma eterna descoberta de um mundo cheio de cores, cheiros e risos que só nós dois entendemos. Amo você sem pressa, sem pressão, mas com a certeza de que o amor, esse amor que sinto, vai durar mais do que qualquer temporário.</p>
+        <p>Se algum dia você sentir que precisa de um ombro para se apoiar, estarei aqui. Se o medo tomar conta de você, saiba que vou estar ao seu lado para segurar sua mão e te mostrar que juntos podemos enfrentar tudo. Porque, além de te amar, eu quero ser seu apoio, quero ser quem te faz sorrir nos dias difíceis e, mais ainda, quero ser quem você olha nos olhos e sabe que pode confiar, mesmo sem termos nos visto ainda.</p>
+        <p>Eu só quero que você saiba que, independentemente do que aconteça, vou sempre estar aqui. A distância, o tempo, as dificuldades... Nada vai mudar o que eu sinto por você. Porque o amor que sinto por você não é passageiro, não é momentâneo. É algo que se fortalece, que cresce a cada dia, e que vai além de qualquer coisa que possa acontecer ao nosso redor. Eu te amo de uma forma que é difícil de descrever, mas é um amor tão forte, tão verdadeiro, que me faz querer viver o resto da minha vida ao seu lado.</p>
+        <p>E, mesmo que o mundo pare de girar e todos os caminhos nos conduzam a lugares inesperados, meu coração será sempre seu, e o amor que sinto será infinito. Porque te amar é mais do que um sentimento, é uma promessa silenciosa que faço todos os dias, uma promessa de ser seu, de ser todo seu, agora e sempre. eu amo você, flaviany. ❤️</p>
+    </div>
+
+    <div class="passionate-note" id="passionate-note">
+        Eu amo você há... 
+    </div>
+
+    <!-- Caixas de tempo -->
+    <div id="time-boxes">
+        <div class="time-box">
+            <span class="time-label">anos</span>
+            <span id="years" class="time-count">0</span>
+        </div>
+        <div class="time-box">
+            <span class="time-label">dias</span>
+            <span id="days" class="time-count">0</span>
+        </div>
+        <div class="time-box">
+            <span class="time-label">horas</span>
+            <span id="hours" class="time-count">0</span>
+        </div>
+        <div class="time-box">
+            <span class="time-label">minutos</span>
+            <span id="minutes" class="time-count">0</span>
+        </div>
+        <div class="time-box">
+            <span class="time-label">segundos</span>
+            <span id="seconds" class="time-count">0</span>
+        </div>
+    </div>
+
+
+    <script>
+        let audio = document.getElementById("audio");
+        let playButton = document.querySelector(".play-btn");
+        let progressBar = document.getElementById("progress-bar");
+        let currentTimeDisplay = document.getElementById("current-time");
+        let totalTimeDisplay = document.getElementById("total-time");
+
+        // Função para formatar o tempo
+        function formatTime(seconds) {
+            let minutes = Math.floor(seconds / 60);
+            let remainingSeconds = Math.floor(seconds % 60);
+            if (remainingSeconds < 10) remainingSeconds = "0" + remainingSeconds;
+            return minutes + ":" + remainingSeconds;
+        }
+
+        // Função para alternar entre play e pause
+        function playPause() {
+            if (audio.paused) {
+                audio.play();
+                playButton.innerHTML = "⏸"; // Alterando para ícone de pause
+            } else {
+                audio.pause();
+                playButton.innerHTML = "▶"; // Alterando para ícone de play
+            }
+        }
+
+        // Atualiza o tempo e a barra de progresso enquanto a música toca
+        audio.addEventListener("timeupdate", function () {
+            currentTimeDisplay.textContent = formatTime(audio.currentTime);
+            let progress = (audio.currentTime / audio.duration) * 100;
+            progressBar.style.width = `${progress}%`;
+        });
+
+        // Quando a música for carregada, define o tempo total
+        audio.addEventListener("loadedmetadata", function () {
+            totalTimeDisplay.textContent = formatTime(audio.duration);
+        });
+
+        // Data do início do amor
+        const startDate = new Date("2023-06-14"); // Data de início do amor
+        const passionateNoteElement = document.getElementById("passionate-note");
+        const timeBoxesElement = document.getElementById("time-boxes");
+
+        function updatePassionateNote() {
+            const currentDate = new Date();
+            const diff = currentDate - startDate;
+
+            // Cálculos para anos, dias, horas, minutos e segundos exatos
+            const years = Math.floor(diff / (1000 * 60 * 60 * 24 * 365));
+            const days = Math.floor((diff % (1000 * 60 * 60 * 24 * 365)) / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+            passionateNoteElement.innerHTML = `Eu amo você há... ❤`;
+
+            // Inserir os valores em caixas
+            timeBoxesElement.innerHTML = `
+                <div class="time-box"><span>Anos:</span> ${years}</div>
+                <div class="time-box"><span>Dias:</span> ${days}</div>
+                <div class="time-box"><span>Horas:</span> ${hours}</div>
+                <div class="time-box"><span>Minutos:</span> ${minutes}</div>
+                <div class="time-box"><span>Segundos:</span> ${seconds}</div>
+            `;
+        }
+
+        // Atualiza a cada segundo
+        setInterval(updatePassionateNote, 1000);
+    </script>
+</body>
+</html>
